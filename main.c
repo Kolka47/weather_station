@@ -199,6 +199,9 @@ int main(void)
 		}
 
 
+
+		enum menu_glowne {main, set_td};
+		enum menu_glowne menuu;
 		//main program switch
 		switch(menu)
 		{
