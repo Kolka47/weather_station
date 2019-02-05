@@ -32,7 +32,7 @@ int main(void)
 
 	// structure for actual time
 	typedef struct {
-		uint16_t second, minute, hour, day, month;
+		uint8_t second, minute, hour, day, month;
 		uint16_t year;
 	}t_time;
 
@@ -314,7 +314,7 @@ int main(void)
 					msw2_flag = 0;
 					menu = 10;
 
-					temp_time = &watch1.minute;
+					temp_time = (uint16_t  *)(&watch1.minute);
 				}
 
 			break;
@@ -355,7 +355,7 @@ int main(void)
 						watch1.second = 0;
 						menu = 11;
 
-						temp_time = &watch1.hour;
+						temp_time = (uint16_t *)&watch1.hour;
 					}
 				}
 			break;
@@ -397,7 +397,7 @@ int main(void)
 						watch1.second = 0;
 						menu = 12;
 
-						temp_time = &watch1.day;
+						temp_time = (uint16_t *)&watch1.day;
 					}
 				}
 			break;
@@ -438,7 +438,7 @@ int main(void)
 						watch1.second = 0;
 						menu = 13;
 
-						temp_time = &watch1.month;
+						temp_time = (uint16_t *)&watch1.month;
 					}
 				}
 			break;
@@ -598,7 +598,7 @@ int main(void)
 
 					menu = alarm_onoff == 0 ? 0 : 21;
 
-					temp_time = &alarm1.minute;
+					temp_time = (uint16_t *)&alarm1.minute;
 				}
 
 			break;
@@ -637,7 +637,7 @@ int main(void)
 						alarm1.minute = *temp_time;
 						menu = 22;
 
-						temp_time = &alarm1.hour;
+						temp_time = (uint16_t *)&alarm1.hour;
 					}
 				}
 
